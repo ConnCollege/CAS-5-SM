@@ -2,10 +2,13 @@
 <!-- Specify the refresh internal in seconds. -->
 <Configuration monitorInterval="60">
     <Appenders>
+        <Properties>
+            <Property name="sm.log.dir">/var/log/tomcat/</Property>
+        </Properties>
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d %p [%c] - &lt;%m&gt;%n"/>
         </Console>
-        <RollingFile name="cas-management" fileName="logs/cas-management.log" append="true"
+        <RollingFile name="cas-management" fileName="${sys:sm.log.dir}/cas-management.log" append="true"
                      filePattern="cas-management-%d{yyyy-MM-dd-HH}-%i.log.gz">
             <PatternLayout pattern="%d %p [%c] - %m%n"/>
             <Policies>
@@ -36,7 +39,7 @@
         <AsyncLogger name="org.apereo.inspektr.audit.support.Slf4jLoggingAuditTrailManager" level="info">
             <AppenderRef ref="cas-management"/>
         </AsyncLogger>
-        
+
         <!-- Custom Logging -->
         <AsyncLogger name="org.apereo.cas.config" level="debug" includeLocation="true"/>
         <AsyncLogger name="org.apereo.cas.configuration" level="debug" includeLocation="true"/>
