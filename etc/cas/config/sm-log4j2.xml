@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- Specify the refresh internal in seconds. -->
 <Configuration monitorInterval="60">
+    <Properties>
+        <Property name="sm.log.dir">/var/log/tomcat/</Property>
+    </Properties>
     <Appenders>
-        <Properties>
-            <Property name="sm.log.dir">/var/log/tomcat/</Property>
-        </Properties>
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d %p [%c] - &lt;%m&gt;%n"/>
         </Console>
