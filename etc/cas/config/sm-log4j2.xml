@@ -8,7 +8,7 @@
         <Console name="console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d %p [%c] - &lt;%m&gt;%n"/>
         </Console>
-        <RollingFile name="cas-management" fileName="${sys:sm.log.dir}/cas-management.log" append="true"
+        <RollingFile name="cas-management" fileName="${sys:sm.log.dir}/logs/cas-management.log" append="true"
                      filePattern="cas-management-%d{yyyy-MM-dd-HH}-%i.log.gz">
             <PatternLayout pattern="%d %p [%c] - %m%n"/>
             <Policies>
